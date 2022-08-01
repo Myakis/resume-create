@@ -3,8 +3,8 @@ import { appReducer } from "./index";
 
 //Для работоспособности расширения redux devtools
 //@ts-ignore
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(appReducer, composeEnhancers());
+const store = createStore(appReducer, composeEnhancers(applyMiddleware()));
 
 export default store;

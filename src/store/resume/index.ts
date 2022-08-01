@@ -2,7 +2,7 @@ import { TProject } from "./../../models/resume";
 import { ActionsTypes } from "..";
 import { TAboutMe, THardSkills } from "../../models/resume";
 import { resumeActions } from "./action";
-import { FETCH_STUDY_GROUP_LIST_TYPES } from "./types";
+import { EDITOR_GLOBAL, SET_IMAGE } from "./types";
 
 const initialState = {
   editor: false as boolean,
@@ -11,7 +11,7 @@ const initialState = {
   aboutMe: {
     fullName: null,
     jobPosition: null,
-    imgUrl: null,
+    imgUrl: localStorage.getItem("imageBlob"),
     age: null,
     location: null,
     phone: null,
@@ -20,17 +20,28 @@ const initialState = {
 
 type TInitialState = typeof initialState;
 
-export default function fetchTestResult(
+export default function resumeReducer(
   state = initialState,
   action: ActionsTypes<typeof resumeActions>,
 ): TInitialState {
   switch (action.type) {
-    case FETCH_STUDY_GROUP_LIST_TYPES.REQUEST:
+    case EDITOR_GLOBAL:
       return {
         ...state,
-        project: [],
+        editor: action.editor,
       };
-
+    case SET_IMAGE:
+      if (localStorage.getItem("imageBlob")) {
+        localStorage.clear();
+      }
+      localStorage.setItem("imageBlob", action.image);
+      return {
+        ...state,
+        aboutMe: {
+          ...state.aboutMe,
+          imgUrl: action.image,
+        },
+      };
     default:
       return state;
   }

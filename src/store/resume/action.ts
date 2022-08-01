@@ -1,7 +1,14 @@
-import { FETCH_STUDY_GROUP_LIST_TYPES } from "./types";
+import { EDITOR_GLOBAL, SET_IMAGE } from "./types";
 
 export const resumeActions = {
-  fetchStudyGroupList: () => ({
-    type: FETCH_STUDY_GROUP_LIST_TYPES.REQUEST,
-  }),
+  globalEditor: (editor: boolean) =>
+    ({
+      type: EDITOR_GLOBAL,
+      editor,
+    } as any),
+  setImage: (image: any) =>
+    ({
+      type: SET_IMAGE,
+      image,
+    } as any),
 };

@@ -1,9 +1,19 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import About from "../../components/About";
 import ProjectList from "../../components/ProjectList";
 import Sidebar from "../../components/Sidebar/index";
+import { useTypedSelector } from "../../store";
+import { resumeActions } from "../../store/resume/action";
 
 const MainPage = () => {
+  const editor = useTypedSelector(state => state.resume.editor);
+  const dispatch = useDispatch();
+
+  const changeEditor = () => {
+    dispatch(resumeActions.globalEditor(!editor));
+  };
+
   return (
     <div className="d-flex">
       <Sidebar />
@@ -104,6 +114,9 @@ const MainPage = () => {
           </div>
           <ProjectList />
         </main>
+        <button className="editor-btn" onClick={changeEditor}>
+          Редактировать
+        </button>
       </div>
     </div>
   );

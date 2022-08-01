@@ -44,6 +44,23 @@ a {
     padding: 0;
   }
 }
+
+.editor-btn {
+  background: inherit;
+  border-radius: 10px;
+  outline: none;
+  top: 50px;
+  left: 10px;
+  position: absolute;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #5ea1df;
+    }
+  }
+}
 .sidebar {
   background: rgba(225, 225, 225, 0.38);
   // .sidebar__photo
@@ -73,6 +90,15 @@ a {
     @media (max-width: 768px) {
       font-size: 25px;
     }
+
+    &-prev {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      height: 100px;
+      align-items: center;
+      justify-content: space-around;
+    }
     & img {
       height: 100%;
       width: 100%;
@@ -81,6 +107,27 @@ a {
       @media (max-width: 700px) {
         width: 320px;
       }
+    }
+  }
+
+  .prev-photo {
+    &__full {
+      height: 100px;
+      width: 150px;
+    }
+    &__circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    img {
+      display: block;
+      object-fit: cover;
+      height: 100%;
     }
   }
 
@@ -126,7 +173,20 @@ a {
   &__about {
   }
 
-  // .sidebar__info
+  .sidebar__info {
+    input {
+      display: block;
+      border-radius: 10px;
+      padding: 0.4rem 1rem;
+      margin: 7px 0;
+      border: none;
+      outline: none;
+    
+      &:focus {
+        outline: 1px solid #0085ff;
+      }
+    }
+  }
 
   &__info {
     display: flex;
