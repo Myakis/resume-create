@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,regular,500,700,900);
+
+@import "modal.scss";
+@import "variables.scss";
+@import "modal-calendar.scss";
+
 $mainColor: rgba(94, 161, 223, 0.92);
 $line: #0085ff;
 $subtitle: #5ea1df;
@@ -135,10 +140,11 @@ a {
 
   &__name {
     background: $mainColor;
-    padding: 7px 0 42px 60px;
-    color: #ffffff;
+    padding: 7px 62px 42px 60px;
+    color: #ffffff !important;
     font-weight: 400;
     font-size: 46px;
+
     @media (max-width: 768px) {
     }
     @media (max-width: 992px) {
@@ -153,6 +159,34 @@ a {
       padding: 7px 0 7px 10px;
       font-size: 25px;
     }
+    > input {
+      width: 100%;
+      display: block;
+      font-weight: 200;
+      font-size: 32px;
+      border: none;
+      outline: none;
+      padding: 0.4rem 1rem;
+      border-radius: 10px;
+      &:focus {
+        outline: 1px solid #0085ff;
+      }
+
+      @media (max-width: 768px) {
+      }
+      @media (max-width: 992px) {
+        width: 550px;
+        font-size: 30px;
+      }
+      @media (max-width: 890px) {
+        width: 100%;
+        padding: 7px 0 22px 10px;
+      }
+      @media (max-width: 768px) {
+        padding: 7px 0 7px 10px;
+        font-size: 25px;
+      }
+    }
   }
 
   // .sidebar__job
@@ -165,6 +199,25 @@ a {
     }
     @media (max-width: 768px) {
       font-size: 16px;
+    }
+    input {
+      padding: 0.4rem 1rem;
+      margin-top: 0.5rem;
+      display: block;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+
+      &:focus {
+        outline: 1px solid #0085ff;
+      }
+      @media (max-width: 890px) {
+        font-size: 22px;
+      }
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
     }
   }
 
@@ -181,7 +234,7 @@ a {
       margin: 7px 0;
       border: none;
       outline: none;
-    
+
       &:focus {
         outline: 1px solid #0085ff;
       }
@@ -223,6 +276,16 @@ a {
         }
       }
     }
+    &-add {
+      cursor: pointer;
+      padding: 0.3rem 0;
+      transition: all 0.3s ease 0s;
+      @media (any-hover: hover) {
+        &:hover {
+          color: #5ea1df;
+        }
+      }
+    }
   }
 
   // .sidebar__list
@@ -243,6 +306,16 @@ a {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    input {
+      border-radius: 10px;
+      padding: 0.4rem 1rem;
+      margin: 7px 0;
+      border: none;
+      outline: none;
+      &:focus {
+        outline: 1px solid #0085ff;
+      }
+    }
     span {
       width: 5px;
       height: 5px;
@@ -261,6 +334,10 @@ a {
     margin: 0;
     padding: 0 10px;
   }
+}
+
+.main__wrapper {
+  width: 100%;
 }
 
 .downland {
@@ -347,6 +424,18 @@ a {
   }
 }
 .about {
+  input {
+    margin-top: 1rem;
+    display: block;
+    border-radius: 10px;
+    padding: 0.4rem 1rem;
+    margin: 7px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    &:focus {
+      outline: 1px solid #0085ff;
+    }
+  }
 }
 .contact {
   margin-top: 3rem;
@@ -420,6 +509,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    .delete{
+      position: absolute;
+      right: 0;
+      top: -20px;
+    }
   }
 
   &__list {
@@ -429,6 +524,25 @@ a {
 
   &__item {
     margin-bottom: 40px;
+    textarea {
+      resize: none;
+      height: 250px;
+      width: 100%;
+    }
+    input {
+      max-width: 350px;
+      width: 100%;
+    }
+    input,
+    textarea {
+      border-radius: 10px;
+      padding: 0.4rem 1rem;
+      margin: 7px 0;
+      border: 1px solid #ccc;
+      &:focus {
+        outline: 1px solid #0085ff;
+      }
+    }
     @media (max-width: 768px) {
       margin-bottom: 20px;
     }
@@ -458,5 +572,26 @@ a {
 
   &__link {
     font-weight: 700;
+  }
+}
+
+.error {
+  outline: 1px solid rgb(184, 10, 10) !important;
+}
+.touch {
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    opacity: 0.9;
+    outline: 2px solid saddlebrown;
+  }
+}
+.delete {
+  padding-left: 1rem;
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

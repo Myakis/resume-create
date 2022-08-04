@@ -1,0 +1,100 @@
+@import "variables.scss";
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba($color-default-black, 0.8);
+  transform: scale(1.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity $trans-modal,
+    transform $trans-modal,
+    visibility $trans-modal;
+  pointer-events: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    width: 800px;
+
+    @media ($vp-1023) {
+      width: 620px;
+    }
+
+    @media ($vp-833) {
+      width: 100%;
+      min-width: 320px;
+      max-width: 335px;
+    }
+
+    @media ($vp-374) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &__close-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media ($vp-833) {
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &.is-active {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+}

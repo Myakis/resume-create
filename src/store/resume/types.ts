@@ -6,4 +6,6 @@ export const FETCH_STUDY_GROUP_LIST_TYPES = {
 
 export const EDITOR_GLOBAL = "EDITOR_GLOBAL";
 export const SET_IMAGE = "SET_IMAGE";
+export const SET_PARAMS = "SET_PARAMS";
+
 

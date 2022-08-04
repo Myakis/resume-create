@@ -1,0 +1,326 @@
+@import "variables.scss";
+
+.modal-change-date {
+  min-height: 583px;
+  background: $color-seashell;
+  border: 1px solid $color-seashell;
+
+  // &__wrapper {}
+
+  &__content {
+    padding: 50px;
+
+    @media ($vp-1023) {
+      padding: 28px 55px;
+      padding-bottom: 45px;
+    }
+
+    @media ($vp-833) {
+      padding: 35px 0;
+      padding-bottom: 65px;
+    }
+  }
+
+  &__title {
+    font-family: $ff-suisseintel;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 45px;
+    text-transform: uppercase;
+    color: $color-nero;
+
+    @media ($vp-1023) {
+      font-size: 21px;
+      line-height: 29px;
+    }
+
+    @media ($vp-833) {
+      padding: 0 30px;
+    }
+
+    @media ($vp-374) {
+      padding: 0 10px;
+    }
+  }
+
+  &__form-wrapper {
+    margin-top: 2rem;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-around;
+    column-gap: 20px;
+    row-gap: 32px;
+    margin-left: 10px;
+
+    @media ($vp-1023) {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__radio-list {
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 25px;
+
+    @media ($vp-1023) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @media ($vp-833) {
+      align-items: center;
+    }
+  }
+
+  // &__radio-item {}
+
+  &__radio-label {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid $color-very-light-gray;
+    border-radius: 4px;
+    min-width: 257px;
+    min-height: 63px;
+    height: 100%;
+    padding: 16px;
+    padding-left: 47px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  &__radio-input:checked+.modal-change-date__radio-label {
+    
+    border: 1px solid $color-default-black;
+
+    .modal-change-date__time:before {
+      border: 4px solid $color-night-rider;
+    }
+  }
+
+  &__time {
+    position: relative;
+    font-family: $ff-manrope;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $color-night-rider;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 16px;
+      height: 16px;
+      left: -27px;
+      top: 5px;
+      border: 2px solid $color-very-light-gray;
+      border-radius: 50%;
+    }
+  }
+
+  // &__time-from {}
+
+  // &__time-number {}
+
+  // &__time-to {}
+
+  &__button-wrapper {
+    @media ($vp-1023) {
+      margin-top: 30px;
+    }
+
+    @media ($vp-833) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+    }
+  }
+
+  &__button {
+    font-family: $ff-manrope;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: $color-dim-gray;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 48px;
+    transition: color $trans-default;
+
+    @media ($vp-833) {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    &:hover {
+      color: $color-medium-wood;
+    }
+  }
+
+  .button {
+    min-width: 242px;
+    cursor: pointer;
+  }
+}
+
+// .calendar {
+//   width: 403px;
+//   background-color: $color-default-white;
+//   margin-top: 25px;
+
+//   @media ($vp-1023) {
+//     margin-top: 18px;
+//   }
+
+//   @media ($vp-833) {
+//     width: 100%;
+//   }
+
+//   &__title {
+//     display: flex;
+//     justify-content: center;
+//     font-family: $ff-manrope;
+//     font-weight: 400;
+//     font-size: 18px;
+//     line-height: 27px;
+//     color: $color-night-rider;
+//     margin: 14px 0;
+//   }
+
+//   &__button-wrapper {
+//     position: relative;
+//     display: flex;
+//     justify-content: space-between;
+//     width: 95%;
+//     top: -45px;
+//     margin: 0 auto;
+//   }
+
+//   &__button {
+//     position: relative;
+//     background-color: transparent;
+//     padding: 0;
+//     border: none;
+//     width: 40px;
+//     height: 40px;
+
+//     &--prev {
+//       &::before {
+//         position: absolute;
+//         content: "";
+//         width: 16px;
+//         height: 16px;
+//         top: 30%;
+//         left: 0;
+//         transform: rotate(-270deg);
+//         background-image: url("/public/image/svg/icon-arrow-down-sm.svg");
+//         background-repeat: no-repeat;
+//       }
+//     }
+
+//     &--next {
+//       &::after {
+//         position: absolute;
+//         content: "";
+//         width: 16px;
+//         height: 16px;
+//         top: 25%;
+//         right: 0;
+//         transform: rotate(-90deg);
+//         background-image: url("/public/image/svg/icon-arrow-down-sm.svg");
+//         background-repeat: no-repeat;
+//       }
+//     }
+//   }
+
+//   &__table {
+//     display: flex;
+//     flex-direction: column;
+
+//     text-align: center;
+//     margin: 0 auto;
+//     width: 100%;
+//     margin-top: -33px;
+//     padding-bottom: 30px;
+//     padding-left: 18px;
+//     padding-right: 18px;
+
+//     @media ($vp-833) {
+//       max-width: 335px;
+//       padding-left: 12px;
+//       padding-left: 12px;
+//     }
+//   }
+
+//   &__week-days {
+//     display: flex;
+//     justify-content: space-between;
+//     margin-bottom: 25px;
+
+//     @media ($vp-833) {
+//       margin-top: -12px;
+//       margin-bottom: 16px;
+//     }
+//   }
+
+//   &__week-day {
+//     font-family: $ff-manrope;
+//     font-weight: 700;
+//     font-size: 15px;
+//     line-height: 22px;
+//     color: $color-night-rider;
+//   }
+
+//   &__week-row {
+//     display: flex;
+//     justify-content: space-between;
+//     margin-bottom: 2px;
+//   }
+
+//   &__day {
+//     display: inline-flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-family: $ff-manrope;
+//     font-weight: 400;
+//     font-size: 15px;
+//     line-height: 22px;
+//     width: 30px;
+//     height: 30px;
+//     color: $color-night-rider;
+
+//     &--selected {
+//       background-color: $color-default-black;
+//       color: $color-default-white;
+//     }
+
+//     &--prev-month {
+//       font-family: $ff-manrope;
+//       font-weight: 400;
+//       font-size: 15px;
+//       line-height: 22px;
+//       color: $color-very-light-gray;
+//     }
+
+//     &--next-month {
+//       font-family: $ff-manrope;
+//       font-weight: 400;
+//       font-size: 15px;
+//       line-height: 22px;
+//       color: $color-very-light-gray;
+//     }
+//   }
+// }

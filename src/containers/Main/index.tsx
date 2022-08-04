@@ -1,3 +1,4 @@
+import { Field, Formik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import About from "../../components/About";
@@ -7,21 +8,72 @@ import { useTypedSelector } from "../../store";
 import { resumeActions } from "../../store/resume/action";
 
 const MainPage = () => {
-  const editor = useTypedSelector(state => state.resume.editor);
+  const isEditor = useTypedSelector(state => state.resume.editor);
   const dispatch = useDispatch();
 
   const changeEditor = () => {
-    dispatch(resumeActions.globalEditor(!editor));
+    dispatch(resumeActions.globalEditor(!isEditor));
   };
 
   return (
     <div className="d-flex">
       <Sidebar />
       <div className="main__wrapper">
-        <div className="sidebar__name">
-          Мякишев Андрей
-          <div className="sidebar__job">Frontend Developer</div>
-        </div>
+        {!isEditor ? (
+          <div className="sidebar__name">
+            Мякишев Андрей
+            <div className="sidebar__job">Frontend Developer</div>
+          </div>
+        ) : (
+          <Formik
+            initialValues={{
+              fullName: "",
+              jobPosition: "",
+            }}
+            validate={values => {
+              const errors = {} as any;
+
+              return errors;
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+              setSubmitting(false);
+            }}>
+            {({
+              errors,
+              touched,
+              handleChange,
+              handleSubmit,
+              setFieldValue,
+              setValues,
+              isSubmitting,
+              values,
+            }) => {
+              return (
+                <form onSubmit={handleSubmit}>
+                  <div className="sidebar__name">
+                    <Field
+                      name={"fullName"}
+                      placeholder="Ваше ФИО"
+                      type="text"
+                    />
+
+                    <div className="sidebar__job">
+                      <Field
+                        name={"jobPosition"}
+                        placeholder="Ваша должность"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" disabled={isSubmitting}>
+                    Submit
+                  </button>
+                </form>
+              );
+            }}
+          </Formik>
+        )}
         <main className="main">
           <About />
           <div className="contact">

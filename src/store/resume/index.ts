@@ -2,19 +2,21 @@ import { TProject } from "./../../models/resume";
 import { ActionsTypes } from "..";
 import { TAboutMe, THardSkills } from "../../models/resume";
 import { resumeActions } from "./action";
-import { EDITOR_GLOBAL, SET_IMAGE } from "./types";
+import { EDITOR_GLOBAL, SET_IMAGE, SET_PARAMS } from "./types";
+
+const dataResume = JSON.parse(localStorage.getItem("resumeData")!);
 
 const initialState = {
   editor: false as boolean,
-  project: [] as TProject[],
-  hardSkills: [] as THardSkills[],
+  project: (dataResume?.project || []) as TProject[],
+  hardSkills: (dataResume?.hardSkills || []) as THardSkills[],
   aboutMe: {
-    fullName: null,
-    jobPosition: null,
+    fullName: dataResume?.aboutMe.fullName || null,
+    jobPosition: dataResume?.aboutMe.jobPosition || null,
     imgUrl: localStorage.getItem("imageBlob"),
-    age: null,
-    location: null,
-    phone: null,
+    age: dataResume?.aboutMe.age || null,
+    location: dataResume?.aboutMe.location || null,
+    phone: dataResume?.aboutMe.phone || null,
   } as TAboutMe,
 };
 
@@ -31,15 +33,22 @@ export default function resumeReducer(
         editor: action.editor,
       };
     case SET_IMAGE:
-      if (localStorage.getItem("imageBlob")) {
-        localStorage.clear();
-      }
       localStorage.setItem("imageBlob", action.image);
       return {
         ...state,
         aboutMe: {
           ...state.aboutMe,
           imgUrl: action.image,
+        },
+      };
+    case SET_PARAMS:
+      localStorage.setItem("resumeData", JSON.stringify(action.params));
+      return {
+        ...state,
+        ...action.params,
+        aboutMe: {
+          ...state.aboutMe,
+          ...action.params.aboutMe,
         },
       };
     default:
