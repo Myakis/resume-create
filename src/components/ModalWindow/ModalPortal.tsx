@@ -11,7 +11,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-const ModalPortal: FC<IProps> = ({ children }) => {
+const ModalPortal: FC<IProps> = React.memo(({ children }) => {
   const [root, setRoot] = useState(null) as any;
 
   useEffect(() => {
@@ -30,8 +30,9 @@ const ModalPortal: FC<IProps> = ({ children }) => {
   }, [root]);
 
   if (root === null) return null;
+
   return ReactDOM.createPortal(children, root);
-};
+});
 
 export default ModalPortal;
 

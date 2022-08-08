@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { motion, Variants } from "framer-motion";
 import ModalChangeDateForm from "./ModalChangeDateForm";
+
 //Настройки для отображения модального окна
 export const settingsModal: Variants = {
   open: {

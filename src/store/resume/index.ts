@@ -3,16 +3,18 @@ import { ActionsTypes } from "..";
 import { TAboutMe, THardSkills } from "../../models/resume";
 import { resumeActions } from "./action";
 import { EDITOR_GLOBAL, SET_IMAGE, SET_PARAMS } from "./types";
+import { projectMock } from "../../mockData";
 
 const dataResume = JSON.parse(localStorage.getItem("resumeData")!);
 
 const initialState = {
   editor: false as boolean,
-  project: (dataResume?.project || []) as TProject[],
+  project: (dataResume?.project || projectMock) as TProject[],
   hardSkills: (dataResume?.hardSkills || []) as THardSkills[],
   aboutMe: {
-    fullName: dataResume?.aboutMe.fullName || null,
-    jobPosition: dataResume?.aboutMe.jobPosition || null,
+    fullName: dataResume?.aboutMe.fullName || 'Ваше ФИО',
+    description: dataResume?.aboutMe.description || null,
+    jobPosition: dataResume?.aboutMe.jobPosition || 'Разработчик',
     imgUrl: localStorage.getItem("imageBlob"),
     age: dataResume?.aboutMe.age || null,
     location: dataResume?.aboutMe.location || null,

@@ -1,4 +1,5 @@
-export const declinationOfNumeral = (number: number, expressions: string[]) => {
+export const declinationOfNumeral = (number: number |null, expressions: string[]) => {
+  if(!number) return null
   const unit = number % 10;
   if (number > 10 && number < 20) {
     return `${number} ${expressions[2]}`;
