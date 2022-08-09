@@ -7,6 +7,7 @@ import { TValuesForm } from "../../models/resume";
 import ModalChangeDate from "../ModalWindow/ModalChangeDate/ModalChangeDate";
 import ModalPortal from "../ModalWindow/ModalPortal";
 import { SpriteSVG } from "../Sprite";
+import { SvgCalendar, SvgDelete } from "../Sprite/svg";
 
 interface IProps {
   values: TValuesForm;
@@ -95,11 +96,12 @@ const ProjectListForm: FC<IProps> = React.memo(
                             onClick={() => setOpen({ index: i, isOpen: true })}>
                             {item.date || (
                               <>
-                                <SpriteSVG
+                                {/* <SpriteSVG
                                   iconWidth={12}
                                   iconHeight={12}
                                   iconId="calendar"
-                                />
+                                /> */}
+                                <SvgCalendar/>
                                 Дата
                               </>
                             )}
@@ -111,11 +113,13 @@ const ProjectListForm: FC<IProps> = React.memo(
                         <div
                           className="delete"
                           onClick={() => onDeleteChangeField(item.id!)}>
-                          <SpriteSVG
+                          {/* <SpriteSVG
                             iconWidth={12}
                             iconHeight={12}
                             iconId="delete"
-                          />
+                          /> */}
+                          <SvgDelete/>
+
                         </div>
                       </div>
                     </div>

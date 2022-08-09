@@ -42,10 +42,11 @@ a {
   display: flex;
   margin: 0 auto;
   min-height: 100vh;
-  @media (max-width: 700px) {
-    flex-direction: column;
+  @media (max-width: 768px) {
+    margin-top: 50px;
   }
   @media (max-width: 700px) {
+    flex-direction: column;
     padding: 0;
   }
 }
@@ -60,6 +61,11 @@ a {
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease 0s;
+  @media (max-width: 768px) {
+    top: 5px;
+    left: 0;
+    width: 100%;
+  }
   @media (any-hover: hover) {
     &:hover {
       background-color: #5ea1df;
@@ -94,8 +100,11 @@ a {
     }
     @media (max-width: 768px) {
       font-size: 25px;
+      height: 250px;
     }
-
+    @media (max-width: 700px) {
+      height: 410px;
+    }
     &-prev {
       margin-top: 1.5rem;
       display: flex;
@@ -110,7 +119,8 @@ a {
       object-fit: cover;
       display: block;
       @media (max-width: 700px) {
-        width: 320px;
+        height: 410px;
+        margin: 0 auto;
       }
     }
   }
@@ -571,10 +581,10 @@ a {
       font-size: 12px;
       align-self: start;
     }
-    span{
+    span {
       display: flex;
       align-items: center;
-      gap: .5rem;
+      gap: 0.5rem;
     }
 
     &.editor {

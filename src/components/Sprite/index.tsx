@@ -15,7 +15,7 @@ export const SpriteSVG: FC<SpriteDataTypes> = ({
 }) => {
   return (
     <svg className={iconClass} width={iconWidth} height={iconHeight}>
-      <use xlinkHref={`/sprite.svg#${iconId}`} />
+      <use xlinkHref={`./sprite.svg#${iconId}`} />
     </svg>
   );
 };

@@ -1,10 +1,8 @@
 import * as yup from "yup";
-import { Field, Formik, useFormik, useFormikContext } from "formik";
+import { Field, Formik, } from "formik";
 import { useDispatch } from "react-redux";
 import cn from "classnames";
-import FormikErrorFocus from "formik-error-focus";
 import React, { useEffect } from "react";
-import isObject from "lodash/isObject";
 
 import AboutForm from "../../components/About/AboutForm";
 import ProjectListForm from "../../components/ProjectList/ProjectListForm";
@@ -58,9 +56,8 @@ const ResumeForm = React.memo(() => {
 
     dispatch(resumeActions.setParams(newParamsResume));
     setSubmitting(false);
-    if (true) {
-      onChangeEditor();
-    }
+
+    onChangeEditor();
     setSubmitting(false);
   };
   const validationScheme = yup.object().shape({
@@ -128,6 +125,7 @@ const ResumeForm = React.memo(() => {
           setFieldValue,
           setValues,
           isSubmitting,
+          setSubmitting,
           isValidating,
           values,
         }) => {
@@ -172,18 +170,14 @@ const ResumeForm = React.memo(() => {
               project: project.filter(item => item.id !== id),
             });
           };
-          // console.dir(
-          //   Array.from(document.querySelectorAll("form.d-flex .error")),
-          // );
-
           // Фокус на невалидное поле
-          // if (document.querySelector("form.d-flex .error")) {
-          // @ts-ignore
-          // document.querySelector("form.d-flex .error")?.focus();
-          // document
-          //   .querySelector("form .error")
-          //   ?.scrollIntoView({ behavior: "smooth", block: "center" });
-          // }
+          if (isSubmitting) {
+            // @ts-ignore
+            document.querySelector("form.d-flex .error")?.focus();
+            document
+              .querySelector("form .error")
+              ?.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
 
           return (
             <form className="d-flex" onSubmit={handleSubmit}>
@@ -238,14 +232,6 @@ const ResumeForm = React.memo(() => {
                 <button className="editor-btn" disabled={isSubmitting}>
                   Сохранить
                 </button>
-                {/* @ts-ignore */}
-                <FormikErrorFocus
-                  offset={0}
-                  align={"top"}
-                  focusDelay={200}
-                  ease={"linear"}
-                  duration={300}
-                />
               </div>
             </form>
           );

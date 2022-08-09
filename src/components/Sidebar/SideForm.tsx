@@ -9,6 +9,7 @@ import { SpriteSVG } from "../Sprite";
 import mockIMG from "../../assets/img/no-image.jpg";
 import PrevImageBlock from "../PrevImageBlock";
 import { PHONE_MASK } from "../../helpers/constants";
+import { SvgAge, SvgDelete, SvgLocation, SvgPhone } from "../Sprite/svg";
 
 interface IProps {
   setFieldValue: (field: string, value: any) => void;
@@ -63,22 +64,21 @@ const SideForm: FC<IProps> = ({
               return null;
             }
             // Проверка на размер
-            if (fileImg.size / (1024 * 1024) < 3) {
+            if (fileImg.size / (1024 * 1024) < 2) {
               setPrevImageFile(fileImg);
               setPrevImage(true);
               setFieldValue("file", fileImg);
             } else {
-              alert("Превышает 3 мб");
+              alert("Превышает 2 мб");
             }
           }}
         />
-        {errors.file && touched.file && errors.file}
         {
           <ul className="sidebar__about">
-         
             <div className="sidebar__info">
               <span>
-                <SpriteSVG iconWidth={18} iconHeight={18} iconId="age" />
+                {/* <SpriteSVG iconWidth={18} iconHeight={18} iconId="age" /> */}
+                <SvgAge />
               </span>
               <Field
                 autoFocus={errors.age}
@@ -93,7 +93,8 @@ const SideForm: FC<IProps> = ({
             </div>
             <div className="sidebar__info">
               <span>
-                <SpriteSVG iconHeight={18} iconWidth={20} iconId="location" />
+                {/* <SpriteSVG iconHeight={18} iconWidth={20} iconId="location" /> */}
+                <SvgLocation />
               </span>
               <Field
                 className={cn({
@@ -109,7 +110,8 @@ const SideForm: FC<IProps> = ({
             </div>
             <div className="sidebar__info">
               <span>
-                <SpriteSVG iconHeight={18} iconWidth={20} iconId="phone" />
+                {/* <SpriteSVG iconHeight={18} iconWidth={20} iconId="svg" /> */}
+                <SvgPhone />
               </span>
               <MaskedInput
                 className={cn({
@@ -166,6 +168,7 @@ const SideForm: FC<IProps> = ({
                             iconHeight={12}
                             iconId="delete"
                           />
+                          <SvgDelete/>
                         </div>
                       </li>
                     );

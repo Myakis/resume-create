@@ -5,6 +5,7 @@ import { useTypedSelector } from "../../store";
 import { SpriteSVG } from "../Sprite";
 import mockIMG from "../../assets/img/no-image.jpg";
 import { declinationOfNumeral } from "../../utils/declinationOfNumeral";
+import { SvgAge, SvgLocation, SvgPhone } from "../Sprite/svg";
 
 const Sidebar = () => {
   const allHardSkills = useTypedSelector(state => state.resume.hardSkills);
@@ -27,7 +28,8 @@ const Sidebar = () => {
           <ul className="sidebar__about">
             <div className="sidebar__info">
               <span>
-                <SpriteSVG iconWidth={18} iconHeight={18} iconId="age" />
+                {/* <SpriteSVG iconWidth={18} iconHeight={18} iconId="age" /> */}
+                <SvgAge/>
               </span>
               <p>
                 {declinationOfNumeral(Number(aboutMe.age), [
@@ -39,13 +41,17 @@ const Sidebar = () => {
             </div>
             <div className="sidebar__info">
               <span>
-                <SpriteSVG iconHeight={18} iconWidth={20} iconId="location" />
+                {/* <SpriteSVG iconHeight={18} iconWidth={20} iconId="location" /> */}
+                <SvgLocation/>
+
               </span>
               <p>{aboutMe.location}</p>
             </div>
             <div className="sidebar__info">
               <span>
-                <SpriteSVG iconHeight={18} iconWidth={20} iconId="phone" />
+                {/* <SpriteSVG iconHeight={18} iconWidth={20} iconId="phone" /> */}
+                <SvgPhone/>
+
               </span>
               <p>{aboutMe.phone}</p>
             </div>

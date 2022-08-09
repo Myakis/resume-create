@@ -13,12 +13,12 @@ const initialState = {
   hardSkills: (dataResume?.hardSkills || []) as THardSkills[],
   aboutMe: {
     fullName: dataResume?.aboutMe.fullName || 'Ваше ФИО',
-    description: dataResume?.aboutMe.description || null,
+    description: dataResume?.aboutMe.description || '',
     jobPosition: dataResume?.aboutMe.jobPosition || 'Разработчик',
     imgUrl: localStorage.getItem("imageBlob"),
-    age: dataResume?.aboutMe.age || null,
-    location: dataResume?.aboutMe.location || null,
-    phone: dataResume?.aboutMe.phone || null,
+    age: dataResume?.aboutMe.age || '',
+    location: dataResume?.aboutMe.location || '',
+    phone: dataResume?.aboutMe.phone || '',
   } as TAboutMe,
 };
 

@@ -1,10 +1,27 @@
-# Getting Started with Create React App
+# Редактор резюме
+
+### Используемый stack
+
+- React
+- Redux
+- TypeScript
+- sass
+- formik
+- yup
+- moment
+- react-calendar
+- react-text-mask
+- react-motion
+- file api
+- render-props
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Запуск проекта с  [github pages](https://myakis.github.io/resume-create/)
 
-In the project directory, you can run:
+###  или так https://myakis.github.io/resume-create/
 
 ### `npm start`
 
