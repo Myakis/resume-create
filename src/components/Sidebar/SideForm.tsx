@@ -163,11 +163,11 @@ const SideForm: FC<IProps> = ({
                         <div
                           className="delete"
                           onClick={() => onDeleteChangeField(item.id!)}>
-                          <SpriteSVG
+                          {/* <SpriteSVG
                             iconWidth={12}
                             iconHeight={12}
                             iconId="delete"
-                          />
+                          /> */}
                           <SvgDelete/>
                         </div>
                       </li>
